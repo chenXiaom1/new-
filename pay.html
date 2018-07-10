@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="http://i.gtimg.cn/vipstyle/frozenui/2.0.0/css/frozen.css">
+
+</head>
+<style>
+    body {
+        /* background: #3fe60dea;  #3db839*/
+    }
+
+    img {
+        width: 70%;
+        height: 70%;
+    }
+</style>
+
+<body>
+
+    <section class="ui-notice">
+        <div class="ui-notice-btn">
+            <button class="ui-btn-primary ui-btn-lg" style="background: #3db839;">支付</button>
+        </div>
+        <div class="show">
+            <p style="color: red;display: none;">您不能重复点击哦</p>
+        </div>
+    </section>
+
+    <script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script>
+        $(function () {
+            var timer;
+            //执行一次，300毫秒后结束才能点击
+            $('.ui-btn-primary').click(function () {
+                console.log(2)
+                clearTimeout(timer)
+                $('button').attr('disabled', "true");
+                timer = setTimeout(function () {
+                    $('button').removeAttr("disabled");
+                }, 2000);
+
+            });
+        })
+
+    </script>
+</body>
+
+</html>
